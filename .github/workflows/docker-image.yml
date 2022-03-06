@@ -22,5 +22,5 @@ jobs:
     
     - name: Build the Docker image
       run: docker build . -t ${{ env.ACR_LOGIN_SERVER }}/${{ env.APP_NAME }}:${{ github.sha }}
-    - name: Push Image to Docker
+    - name: Push Image to Azure Container Registry
       run: docker push ${{ env.ACR_LOGIN_SERVER }}/${{ env.APP_NAME }}:${{ github.sha }}
