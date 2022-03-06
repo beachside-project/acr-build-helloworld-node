@@ -17,8 +17,8 @@ jobs:
       uses: azure/docker-login@v1
       with:
         login-server: ${{ env.ACR_LOGIN_SERVER }}
-        username: ${{ secrets.ACR_USERNAME }}
-        password: ${{ secrets.ACR_PASSWORD }}
+        username: ${{ secrets.AZURE_SP_CLIENT_ID }}
+        password: ${{ secrets.AZURE_SP_CLIENT_SECRET }}
     
     - name: Build the Docker image
       run: docker build . -t ${{ env.ACR_LOGIN_SERVER }}/${{ env.APP_NAME }}:${{ github.sha }}
